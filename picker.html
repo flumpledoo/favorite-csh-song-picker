@@ -206,9 +206,9 @@ button.disabled:hover {
 </style>
 </head>
 <body>
-<h1>Picker</h1>
+<h1>Car Seat Headrest Favourite Song Picker</h1>
 
-<p>You can include any content you want here.</p>
+<p>Note: Songs appearing on multiple albums listed under the album of their first appearance.</p>
 
 <div id="container">
 
@@ -220,6 +220,19 @@ button.disabled:hover {
 </div>
 
 <div id="secondary">
+  <p>Include Albums:
+    <label><input type="checkbox" name="albums" class="albums" value="1"> 1</label>
+    <label><input type="checkbox" name="albums" class="albums" value="2"> 2</label>
+    <label><input type="checkbox" name="albums" class="albums" value="3"> 3</label>
+    <label><input type="checkbox" name="albums" class="albums" value="4"> 4</label>
+    <label><input type="checkbox" name="albums" class="albums" value="myback"> My Back Is Killing Me Baby</label>
+    <label><input type="checkbox" name="albums" class="albums" value="tf"> Twin Fantasy</label>
+    <label><input type="checkbox" name="albums" class="albums" value="htlt"> How To Leave Town</label>
+    <label><input type="checkbox" name="albums" class="albums" value="mono"> Monomania</label>
+    <label><input type="checkbox" name="albums" class="albums" value="nym"> Nervous Young Man</label>
+    <label><input type="checkbox" name="albums" class="albums" value="tod"> Teens of Denial</label>
+    <label><input type="checkbox" name="albums" class="albums" value="other"> B-Sides, etc.</label>
+  </p>
 <h2>Found favorites</h2>
 
 <ol id="favorites" class="item-list">
@@ -235,10 +248,171 @@ button.disabled:hover {
 
 var items = [
     // Define your items here
+    {id: 'tybee', name: 'tybee island horse ghosts', album: '1'},
+    {id: 'goodsunday', name: 'good sunday', album: '1'},
+    {id: 'bigjacket', name: 'big jacket', album: '1'},
+    {id: 'cesare', name: 'Cesare the somnambulist', album: '1'},
+    {id: 'happyugly', name: 'happy/ugly', album: '1'},
+    {id: 'lynch', name: 'David Lynch versus the moon', album: '1'},
+    {id: 'hisshiny', name: 'his shiny customers', album: '1'},
+    {id: 'upallnight', name: 'up all night', album: '1'},
+    {id: 'insidebell', name: 'inside the bell jar', album: '1'},
+    {id: 'july', name: 'july new hey', album: '1'},
+    {id: 'kidwar', name: 'kid war', album: '1'},
+    {id: 'college', name: 'you have to go to college', album: '1'},
+    {id: 'yesbull', name: 'yes bulletin', album: '1'},
+    {id: 'mortgages', name: 'mortgages for veterans', album: '1'},
+    {id: 'mydad', name: 'my dad just passed out', album: '1'},
+    {id: 'ouj', name: 'what does OUJ stand for', album: '1'},
+    {id: 'smokez', name: 'smokezone', album: '2'},
+    {id: 'coffee', name: 'this one time I went to a coffee house...', album: '2'},
+    {id: 'nostarv', name: 'no starving', album: '3'},
+    {id: 'portrait', name: 'portrait of the artist as a young fag', album: '3'},
+    {id: 'beachweak', name: 'beach weak', album: '3'},
+    {id: 'foreign', name: 'foreign song', album: '3'},
+    {id: 'psst', name: 'psst, teenagers, take off your clo', album: '3'},
+    {id: 'sunhot', name: 'sun hot', album: '3'},
+    {id: 'beachfagz', name: 'beach fagz', album: '3'},
+    {id: 'summerbummer', name: 'summer bummer', album: '3'},
+    {id: 'ryannorth', name: 'ryan north by northwest', album: '3'},
+    {id: 'beachdrugs', name: 'beach drugs', album: '3'},
+    {id: 'beachdeath', name: 'beach death', album: '3'},
+    {id: 'beachfuneral', name: 'beach funeral', album: '3'},
+    {id: 'ohstarving', name: 'oh! starving', album: '3'},
+    {id: 'goodbridge', name: 'a good bridge to never cross...', album: '4'},
+    {id: 'whoeven', name: 'who even knows', album: '4'},
+    {id: 'evenwho', name: 'even the who knows', album: '4'},
+    {id: 'notkidding', name: 'not \"kidding\" around', album: '4'},
+    {id: 'heartless', name: 'heartless dick', album: '4'},
+    {id: 'dickless', name: 'dickless heart', album: '4'},
+    {id: 'danieljohnston', name: 'feel like daniel johnston', album: '4'},
+    {id: 'bobsaget', name: 'the ghost of bob saget', album: '4'},
+    {id: 'around', name: 'around', album: '4'},
+    {id: 'thedrum', name: 'the drum', album: 'myback'},
+    {id: 'happynews', name: 'happy news for sadness', album: 'myback'},
+    {id: 'sunburned', name: 'sunburned shirts', album: 'myback'},
+    {id: 'stoop', name: 'stoop kid', album: 'myback'},
+    {id: 'something', name: 'something soon', album: 'myback'},
+    {id: 'nopassion', name: 'no passion', album: 'myback'},
+    {id: 'fatherflesh', name: 'father, flesh in rags', album: 'myback'},
+    {id: 'strangers', name: 'strangers', album: 'myback'},
+    {id: 'lawns', name: 'lawns', album: 'myback'},
+    {id: 'pow', name: 'p.o.w', album: 'myback'},
+    {id: 'openmouth', name: 'open mouthed boy', album: 'myback'},
+    {id: 'myboy', name: 'My Boy', album: 'tf'},
+    {id: 'beachlife', name: 'Beach Life-In-Death', album: 'tf'},
+    {id: 'stopsmoking', name: 'Stop Smoking (We Love You)', album: 'tf'},
+    {id: 'sober', name: 'Sober to Death', album: 'tf'},
+    {id: 'nervous', name: 'Nervous Young Inhumans', album: 'tf'},
+    {id: 'bodys', name: 'Bodys', album: 'tf'},
+    {id: 'cute', name: 'Cute Thing', album: 'tf'},
+    {id: 'high', name: 'High to Death', album: 'tf'},
+    {id: 'famousstars', name: 'Famous Prophets (Stars)', album: 'tf'},
+    {id: 'twinfantasy', name: 'Twin Fantasy (Those Boys)', album: 'tf'},
+    {id: 'famousminds', name: 'Famous Prophets (Minds)', album: 'tf'},
+    {id: 'romantictheory', name: 'Romantic Theory', album: 'mono'},
+    {id: 'misheard', name: 'Misheard Lyrics', album: 'mono'},
+    {id: 'timestodie', name: 'Times To Die', album: 'mono'},
+    {id: 'overexposed', name: 'Overexposed (Enjoy)', album: 'mono'},
+    {id: 'losborrachos', name: 'Los Borrachos', album: 'mono'},
+    {id: 'souls', name: 'Souls', album: 'mono'},
+    {id: 'maud', name: 'Maud Gone', album: 'mono'},
+    {id: 'sleepingwith', name: 'Sleeping With Stangers', album: 'mono'},
+    {id: 'anchorite', name: 'Anchorite (Love You Very Much)', album: 'mono'},
+    {id: 'boxing', name: 'Boxing Day', album: 'nym'},
+    {id: 'afford', name: 'We Can\'t Afford (Your Depression Anymore)', album: 'nym'},
+    {id: 'remind', name: 'Don\'t Remind Me', album: 'nym'},
+    {id: 'homes', name: 'Homes', album: 'nym'},
+    {id: 'afterglow', name: 'Afterglow', album: 'nym'},
+    {id: 'jerks', name: 'Jerks', album: 'nym'},
+    {id: 'brokenbirds', name: 'Broken Birds (Rest In Pieces)', album: 'nym'},
+    {id: 'gun', name: 'The Gun Song', album: 'nym'},
+    {id: 'goodbyelove', name: 'Goodbye Love', album: 'nym'},
+    {id: 'canpiano', name: 'I Can Play The Piano', album: 'nym'},
+    {id: 'crows', name: 'Crows (Rest In Bigger Pieces Mix)', album: 'nym'},
+    {id: 'wannasweat', name: 'I Wanna Sweat', album: 'nym'},
+    {id: 'burningman', name: 'Burning Man', album: 'nym'},
+    {id: 'dreamsfall', name: 'Dreams Fall Hard', album: 'nym'},
+    {id: 'planecrash', name: 'Plane Crash Blues', album: 'nym'},
+    {id: 'movies', name: 'Death At The Movies', album: 'nym'},
+    {id: 'justired', name: 'Jus\' Tired', album: 'nym'},
+    {id: 'strangel', name: 'Some Strange Angel', album: 'nym'},
+    {id: 'knifecoffee', name: 'Knife In The Coffee', album: 'nym'},
+    {id: 'dramamine', name: 'The Ending of Dramamine', album: 'htlt'},
+    {id: 'beastmonster', name: 'Beast Monster Thing', album: 'htlt'},
+    {id: 'kimochi', name: 'Kimochi Warui', album: 'htlt'},
+    {id: 'i94w', name: 'I-94 W', album: 'htlt'},
+    {id: 'urinlovewme', name: 'You\'re In Love With Me', album: 'htlt'},
+    {id: 'america', name: 'America (Never Been)', album: 'htlt'},
+    {id: 'iwantyoutoknow', name: 'I Want You To Know That I\'m Awake/...', album: 'htlt'},
+    {id: 'dusttitanic', name: 'is this dust really from the Titanic?', album: 'htlt'},
+    {id: 'spacecadet', name: 'Hey, Space Cadet', album: 'htlt'},
+    {id: 'fill', name: 'Fill In The Blank', album: 'tod'},
+    {id: 'vincent', name: 'Vincent', album: 'tod'},
+    {id: 'hippie', name: 'Destroyed By Hippie Powers', album: 'tod'},
+    {id: 'drugswith', name: 'Drugs With Friends', album: 'tod'},
+    {id: 'notjust', name: 'Not Just What I Needed', album: 'tod'},
+    {id: 'drunkdriver', name: 'Drunk Drivers/Killer Whales', album: 'tod'},
+    {id: '1937', name: '1937 Skate Park', album: 'tod'},
+    {id: 'unforgiving', name: 'Unforgiving Girl', album: 'tod'},
+    {id: 'cosmic', name: 'Cosmic Hero', album: 'tod'},
+    {id: 'costa', name: 'The Ballad of the Costa Concordia', album: 'tod'},
+    {id: 'thedots', name: 'Connect the Dots', album: 'tod'},
+    {id: 'joeschool', name: 'Joe Goes to School', album: 'tod'},
+    {id: 'leavetogether', name: 'leave together', album: 'other'},
+    {id: 'idontwant', name: 'I don\'t want you', album: 'other'},
+    {id: 'afraid', name: 'I am afraid of literally everything', album: 'other'},
+    {id: '100mins', name: '100 minutes of solitude', album: 'other'},
+    {id: 'neonsign', name: 'neon sign', album: 'other'},
+    {id: 'samson', name: 'samson\'s golden axe', album: 'other'},
+    {id: 'iscream', name: 'I scream social', album: 'other'},
+    {id: 'wachovia', name: 'wachovia receipts', album: 'other'},
+    {id: 'singles', name: 'the singles song', album: 'other'},
+    {id: 'getbetter', name: 'get better get well', album: 'other'},
+    {id: 'squid', name: 'squid desert', album: 'other'},
+    {id: 'ff', name: 'ff', album: 'other'},
+    {id: 'nothing', name: 'nothing', album: 'other'},
+    {id: 'surfjerk', name: 'surf jerk', album: 'other'},
+    {id: 'pleasantterror', name: 'a pleasant sort of terror', album: 'other'},
+    {id: 'totalburn', name: 'total burn', album: 'other'},
+    {id: 'whenim', name: 'when I\'m here', album: 'other'},
+    {id: 'staying', name: 'the staying song', album: 'other'},
+    {id: 'eyesshut', name: 'I CAN TALK WITH MY EYES SHUT', album: 'other'},
+    {id: 'google', name: 'the vice president of google et al', album: 'other'},
+    {id: 'hotsun', name: 'hot sun', album: 'other'},
+    {id: 'only sex', name: 'It\'s Only Sex', album: 'other'},
+    {id: 'reusecels', name: 'Reuse The Cels', album: 'other'},
+    {id: 'hateliving', name: 'I Hate Living', album: 'other'},
+    {id: 'devilmoon', name: 'Devil Moon', album: 'other'},
+    {id: 'endpiece', name: 'Endpiece', album: 'other'},
+    {id: 'pleasepilot', name: 'Please Mr Pilot', album: 'other'},
+    {id: '224', name: '2:24', album: 'other'},
+    {id: 'hardpart', name: 'The Hard Part', album: 'other'},
+    {id: 'soundman', name: 'Sound Man/Low Fidelity', album: 'other'},
+    {id: 'napoleon', name: 'Napoleon (March Into Russia)', album: 'other'},
+    {id: 'worknight', name: 'Drunk On A Work Night', album: 'other'},
+    {id: 'lovetoomuch', name: 'Love Me Too Much', album: 'other'},
+    {id: 'dreamsmoke', name: 'Dream: Encounter On Smoke Mountain', album: 'other'},
+    {id: 'sinner', name: 'Sinner', album: 'other'},
+    {id: 'mancome', name: 'When Will My Man Come?', album: 'other'},
+    {id: 'hilife', name: 'Hi Life', album: 'other'},
+    {id: 'ac', name: 'AC', album: 'other'},
+    {id: 'ifnotohwell', name: 'If Not, Then Oh Well', album: 'other'},
+    {id: 'memories', name: 'Memories (Leonard Cohen Cover)', album: 'other'},
+    {id: 'ks', name: 'KS', album: 'other'},
+    {id: 'painstar', name: 'Unfinished: Pain Star', album: 'other'},
+    {id: 'warcoming', name: 'War Is Coming (If You Want It)', album: 'other'}
 ];
 
 var myPicker = new picker.Picker({
-    items: items
+    items: items,
+    localStorageKey: 'picker-state',
+    defaultSettings: {
+        albums: ['myback', 'tf', 'htlt', 'mono', 'nym', 'tod']
+    },
+    shouldIncludeItem: function(item, settings) {
+        return settings.albums.indexOf(item.album) !== -1;
+    }
 });
 
 var pickerUI = new PickerUI(myPicker, {
@@ -248,7 +422,10 @@ var pickerUI = new PickerUI(myPicker, {
         undo: "#undo",
         redo: "#redo",
         evaluating: "#evaluating",
-        favorites: "#favorites"
+        favorites: "#favorites",
+        settings: {
+          albums: '.albums'
+        }
     }
 });
 
