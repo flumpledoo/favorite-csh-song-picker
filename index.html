@@ -158,21 +158,11 @@ button.disabled:hover {
     }
 }
 
-#progress-bar {
-    display: block;
-    margin: auto;
-    height: 15px;
-    width: 150px;
-    margin-top: 5px;
-    background: #CCC;
+#reset {
+    border: red solid 1px;
+    color: red;
 }
 
-#progress-bar span {
-    display: block;
-    height: 100%;
-    width: 0;
-    background: #58F;
-}
 
 #evaluating li {
     cursor:pointer;
@@ -219,6 +209,27 @@ button.disabled:hover {
     position:relative;
     z-index:3;
 }
+
+.picker-info {
+    text-align:center;
+    font-size:smaller;
+}
+
+#progress-bar {
+    display: block;
+    margin: auto;
+    height: 15px;
+    width: 150px;
+    margin-top: 5px;
+    background: #CCC;
+}
+
+#progress-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #58F;
+}
 </style>
 </head>
 <body>
@@ -232,8 +243,13 @@ button.disabled:hover {
 <ul id="evaluating" class="item-list">
 </ul>
 
-<p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo">Undo</button> <button id="redo">Redo</button></p>
+<p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo">Undo</button> <button id="redo">Redo</button> <button id="reset">Reset</button> </p>
 
+<div class="picker-info">
+    <p>Songs remaining to be eliminated before next favorite is found: <span id="remaining"></span></p>
+
+    <p>Progress towards next favorite: <span id="progress-bar"><span></span></span></p>
+</div>
 
 </div>
 
@@ -256,11 +272,6 @@ button.disabled:hover {
 <ol id="favorites" class="item-list">
 </ol>
 </div>
-</div>
-<div class="picker-info">
-    <p>Songs remaining to be eliminated before next favorite is found: <span id="remaining"></span></p>
-
-    <p>Progress towards next favorite: <span id="progress-bar"><span></span></span></p>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -445,6 +456,7 @@ var pickerUI = new PickerUI(myPicker, {
         pass: "#pass",
         undo: "#undo",
         redo: "#redo",
+        reset: "#reset",
         evaluating: "#evaluating",
         favorites: "#favorites",
         settings: {
@@ -464,25 +476,6 @@ var pickerUI = new PickerUI(myPicker, {
 });
 
 pickerUI.initialize();
-
-/* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
-var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
-    draggable: '.item',
-    animation: 100,
-    onStart: function() {
-        pickerUI.elem.favorites.addClass("sorting");
-    },
-    onEnd: function() {
-        pickerUI.elem.favorites.removeClass("sorting");
-    },
-    onUpdate: function() {
-        myPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
-            return pickerUI.getItem(this);
-        }).get());
-        pickerUI.update(true);
-    }
-});
-/* End sortable favorites */
 
 /* PROGRESS BAR */
 
@@ -504,6 +497,27 @@ function updateProgressBar(value, updateType) {
         $progressBar.width(value + '%');
     }
 }
+
+/* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
+var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
+    draggable: '.item',
+    animation: 100,
+    onStart: function() {
+        pickerUI.elem.favorites.addClass("sorting");
+    },
+    onEnd: function() {
+        pickerUI.elem.favorites.removeClass("sorting");
+    },
+    onUpdate: function() {
+        myPicker.setFavorites(pickerUI.elem.favorites.children().map(function() {
+            return pickerUI.getItem(this);
+        }).get());
+        pickerUI.update(true);
+    }
+});
+/* End sortable favorites */
+
+
 </script>
 </body>
 </html>
