@@ -298,6 +298,7 @@
         this.elem.evaluating.empty();
         $.each(batch, function() {
             self.elem.evaluating.append(self.getItemElem(this, self.picker.getSettings()));
+            self.elem.evaluating.append(this.name, '</span><br>')
         });
         this.updatePickPass(true);
     };
