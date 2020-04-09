@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0">
-<title>Picker</title>
+<title>Favourite CSH Song Picker</title>
 <style>
 body {
     background:#FFF;
@@ -217,6 +217,14 @@ button.disabled:hover {
 </ul>
 
 <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo">Undo</button> <button id="redo">Redo</button></p>
+
+<div class="picker-info">
+      <p>Songs remaining to be eliminated before next favorite is found: <span id="remaining"></span></p>
+
+      <p>Progress towards next favorite: <span id="progress-bar"><span></span></span></p>
+  </div>
+</div>
+
 </div>
 
 <div id="secondary">
@@ -406,7 +414,7 @@ var items = [
 
 var myPicker = new picker.Picker({
     items: items,
-    localStorageKey: 'picker-state',
+    localStorageKey: 'csh-state',
     defaultSettings: {
         albums: ['myback', 'tf', 'htlt', 'mono', 'nym', 'tod']
     },
@@ -426,10 +434,41 @@ var pickerUI = new PickerUI(myPicker, {
         settings: {
           albums: '.albums'
         }
+    },
+    onUpdate: function(updateType) {
+        var total = this.picker.state.items.length;
+        var favorites = this.picker.state.arrays.favorites.length;
+        var eliminated = this.picker.state.arrays.eliminated.length;
+        var remaining = Math.max(0, total - favorites - eliminated - 1);
+
+        $("#remaining").text(remaining);
+
+        updateProgressBar((1 - (remaining / this.picker.state.roundSize)) * 100, updateType);
     }
 });
 
 pickerUI.initialize();
+
+/* PROGRESS BAR */
+
+function updateProgressBar(value, updateType) {
+    var $progressBar = $("#progress-bar span");
+
+    if (['pick', 'undo', 'redo'].indexOf(updateType) !== -1) {
+        if (!value && updateType !== 'undo') {
+            $progressBar.animate({ width: '100%' }, 400, function () {
+                $progressBar.width(0);
+            });
+        } else {
+            if (!$progressBar.width() && updateType === 'undo') {
+                $progressBar.width("100%")
+            }
+            $progressBar.animate({ width: value + '%' }, 400);
+        }
+    } else {
+        $progressBar.width(value + '%');
+    }
+}
 
 /* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
 var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
