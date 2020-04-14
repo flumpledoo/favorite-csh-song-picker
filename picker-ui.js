@@ -328,7 +328,7 @@
         this.elem.favorites.empty();
         $.each(favorites, function() {
             self.elem.favorites.append(self.getItemElem(this, self.picker.getSettings()));
-            self.elem.evaluating.append(this.name, '</span><br>')
+            self.elem.favorites.append(this.name, '</span><br>')
         });
         if (this.elem.shortcodeLink && this.picker.options.favoritesQueryParam && this.picker.options.shortcodeLength) {
             this.elem.shortcodeLink.attr('href', this.picker.getShortcodeLink()).toggle(favorites.length > 0);
