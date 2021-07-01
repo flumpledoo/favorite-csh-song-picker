@@ -983,5 +983,71 @@ var items = [
         name: 'War Is Coming',
         album: 'other',
         image: 'images/warcoming.jpg'
+    },
+    {
+        id: 'weightlifters',
+        name:'Weightlifters',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'ccmd',
+        name:'Can\'t Cool Me Down',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'hostile',
+        name:'Deadlines (Hostile)',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'hollywood',
+        name:'Hollywood',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'hymn',
+        name:'Hymn (Remix)',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'martin',
+        name:'Martin',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'thoughtful',
+        name:'Deadlines (Thoughtful)',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'wwyl',
+        name:'What\'s With You Lately',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'lwm',
+        name:'Life Worth Missing',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'morethanblood',
+        name:'There Must Be More Than Blood',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
+    },
+    {
+        id: 'famous',
+        name:'Famous',
+        album: 'Making a Door Less Open',
+        image: 'images/madlo.jpg'
     }
 ];
